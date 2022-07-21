@@ -10,8 +10,9 @@ export function CartCard({ product: product }) {
 const { cart, setCart } = useCart();
 
 
-const switchQuantity = (product) => {
-  const newQuantity = document.getElementById('quantity-selector').value
+const switchQuantity = (e,product) => {
+  let newQuantity = e.target.value
+  
     setCart(
         cart.map(item =>
           item.id === product.id
@@ -21,10 +22,9 @@ const switchQuantity = (product) => {
       );  
 
   };
-  console.log(cart) 
 
-const addObservation = (product) =>{
-  const obs = document.getElementById('observation-selector').value
+const addObservation = (e,product) =>{
+  const obs = e.target.value
   setCart(
     cart.map(item =>
       item.id === product.id
@@ -48,15 +48,14 @@ const deleteProduct = (product) =>{
       <span>{product.name}</span>
       <span>R$ {(Number(product.price)/100).toFixed(2)}</span>
       </div>  
-      <input className={styles.quantity} id="quantity-selector" type="Number" min="1" max="10" value={product.quantity} onChange={()=> switchQuantity(product)}/>
-
+      <input className={styles.quantity}  type="Number"  value={product.quantity} onChange={(e)=> switchQuantity(e,product)}/>
       <div className={styles.finalValue}>
-      <span>R$ {((Number(product.price)/100).toFixed(2))*product.quantity}</span>
+      <span>R$ {(((Number(product.price)/100))*product.quantity).toFixed(2)}</span>
       </div>  
 
       </div>
       <div className={styles.observationBox}>
-      <textarea className={styles.observation} id="observation-selector" type="text" placeholder="Tem alguma observação..." value={product?.observation} onChange={()=> addObservation(product)}/>
+      <textarea className={styles.observation} type="text" placeholder="Tem alguma observação..." value={product?.observation} onChange={(e)=> addObservation(e,product)}/>
       <div className={styles.delete}>
         <button className={styles.deleteButton} onClick={()=> deleteProduct(product)}><DeleteOutlined /></button>
       </div>

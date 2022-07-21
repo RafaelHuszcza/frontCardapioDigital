@@ -23,10 +23,9 @@ const finishOrder = async () =>{
      
     ],
   }
-
   
   { cart.map(item =>     
-      {total +=  Number(item.price)
+      {total +=  Number(item.price)*item.quantity
       order.products.push({ productId : item.id , quantity : item.quantity, price: item.price, observation: item.observation != null ? item.observation : null  })
       order = {...order, total:total}
     }) 
