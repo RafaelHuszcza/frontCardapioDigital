@@ -1,0 +1,9 @@
+.navbar{
+  background:var(--secondary-color);
+  width: 3vw;
+  height:100vh; 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
