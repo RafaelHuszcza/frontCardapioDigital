@@ -39,6 +39,17 @@
   color: var(--text-color-primary);
   justify-content: space-between;
 }
+
+.names{
+  display: flex;
+  align-items: center;
+}
+.names > p{
+  padding-top: 0.3rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
 .filters{
   display: flex;
   width: 100%;

@@ -13,6 +13,7 @@ import {SearchOutlined } from "@ant-design/icons"
 
 export function Products() {
   
+const table = JSON.parse(localStorage.getItem("@taNaMesa:user")).name;
 
 const { products, setProducts } = useProducts();
 const { cart, setCart } = useCart();
@@ -70,9 +71,12 @@ useEffect(() => {
     <div className={cart.length > 0? `${styles.containerProducts} ${styles.cartOn}` : `${styles.containerProducts}`}>
       <div className={styles.header}>
         <div className={styles.topHeader}>
+          <div className={styles.names}>
           <h1>Tá na Mesa Restaurante</h1>
+          <p>{table}</p>
+          </div>
           <div className={styles.searchBar}>
-          <label for="SearchBar"><SearchOutlined style={{position: "absolute", top:"1.5vh", left:"1.5vh", fontSize:"1rem"}}/></label>          
+          <label htmlFor="SearchBar"><SearchOutlined style={{position: "absolute", top:"1.5vh", left:"1.5vh", fontSize:"1rem"}}/></label>          
           <input id="SearchBar" className={styles.searchBarInput} onChange={(e) => setFilterSearch(e.target.value)} type="text" placeholder="Digite a pesquisa"/>
           </div>
           </div>
