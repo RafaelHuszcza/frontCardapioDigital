@@ -5,7 +5,7 @@
   overflow: hidden;
   width: 16rem;
   z-index: 1;
-  max-height: 90vh;
+  max-height: 100vh;
 }
 
 .toastContainer div + div{
