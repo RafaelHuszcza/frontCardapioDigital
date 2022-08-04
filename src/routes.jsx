@@ -9,6 +9,7 @@ import { LoginRoutes} from "./components/Routes/LoginRoutes";
 
 import { Home } from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
+import { OrdersPage } from "./pages/OrdersPage/OrdersPage";
 
 
   export function AppRoutes() {
@@ -21,6 +22,8 @@ import { Login } from "./pages/Login/Login";
           {/* Home Routes */}
           <Route element={<GlobalRoutes/>}>
             <Route path ="/home" element={<Home/>} exact/>
+            
+            <Route path ="/orders" element={<OrdersPage/>} exact/>
           </Route>  
 
           {/* Auth Rotes */}            

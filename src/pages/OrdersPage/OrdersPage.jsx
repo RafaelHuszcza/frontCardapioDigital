@@ -1,0 +1,18 @@
+import styles from './OrdersPage.module.css'
+
+
+
+import { Orders } from "../../components/Orders/Orders";
+import { Navbar } from "../../components/Navbar/Navbar";
+
+export function OrdersPage() {
+  
+
+
+  return (
+    <div className={styles.container}>
+        <Navbar Component1={Orders} />
+    </div>
+
+  );
+}
