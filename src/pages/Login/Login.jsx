@@ -16,13 +16,19 @@ const login = async ({ login, password }) => {
       const regex = /^(?=.*[@!#$%^&*()/\\])[@!#$%^&*()/\\a-zA-Z0-9]{6,20}$/
       const content = { password: "123456789@" }
 
-      if (login.length === 0) return { error: 'Insira uma mesa.' };
+      if (login.length === 0) return { error: 'Insira uma mesa ou login cozinha.' };
       else if (password.length === 0) return { error: 'Insira uma senha.' };
       else if (password.length > 20 || password.length < 6) return {error: 'A senha deve conter entre 6 a 20 caracteres!'}
       else if(!regex.test(password))return {error: 'A senha deve conter caracteres especiais!'} 
-      else if(password !== content.password )return {error: 'Senha Incorreta'}       
-      
-      const data = { user:{id: "1", name: login}, token: '1234567890' }
+      else if(password !== content.password )return {error: 'Senha Incorreta'}
+      let data = {}
+      if (login == "Cozinha1"){
+
+        data = { user:{id: "1222", name: login, usertype: "kitchen"}, token: '1234567890' }
+      }
+      else{
+        data = { user:{id: "1", name: login, usertype: "client"}, token: '1234567890' }
+      }
       return { user: data.user, token: data.token, error: null }; 
 
     } catch (e) {
